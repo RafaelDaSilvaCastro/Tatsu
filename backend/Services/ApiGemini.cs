@@ -1,10 +1,12 @@
-﻿using backend.Rest;
+﻿using backend.Data.Dto;
+using backend.Rest;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Http;
 using Newtonsoft.Json;
 using System.Formats.Asn1;
 using System.Net.Http.Headers;
 using System.Text;
+using static Google.Rpc.Context.AttributeContext.Types;
 
 namespace backend.Services
 {
@@ -16,18 +18,25 @@ namespace backend.Services
         const string ModelId = "gemini-pro";
         const string EndpointUrl = $"{AiPlatformUrl}/v1/projects/{ProjectId}/locations/{Location}/publishers/google/models/{ModelId}:streamGenerateContent";
 
-        public async static Task<string> Generate(string text)
+        public async static Task<Response<string>> Generate(string text)
         {
             string payload = GeneratePayload(text);
-            string response = await SendRequest(payload);
-            var geminiResponses = JsonConvert.DeserializeObject<List<GeminiResponse>>(response);
+            var response = await SendRequest(payload);
 
-            string fullText = string.Join("", geminiResponses
+            if (response.Success)
+            {
+                var geminiResponses = JsonConvert.DeserializeObject<List<GeminiResponse>>(response.Data);
+
+                string fullText = string.Join("", geminiResponses
                 .SelectMany(co => co.Candidates)
                 .SelectMany(c => c.Content.Parts)
                 .Select(p => p.Text));
 
-            return fullText;
+                //return fullText;
+                return new Response<string> { Success = true, Data = fullText };
+            }
+
+            return new Response<string> { Success = false, ErrorMessage = response.ErrorMessage };            
         }
 
         private static string GeneratePayload(string text)
@@ -53,7 +62,7 @@ namespace backend.Services
             return JsonConvert.SerializeObject(payload);
         }
 
-        private async static Task<string> SendRequest(string payload)
+        private async static Task<Response<string>> SendRequest(string payload)
         {
             try
             {
@@ -66,9 +75,13 @@ namespace backend.Services
                 HttpResponseMessage response = await httpClient.PostAsync(EndpointUrl,
                     new StringContent(payload, Encoding.UTF8, "application/json"));
 
-                response.EnsureSuccessStatusCode();
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseBody = await response.Content.ReadAsStringAsync();
+                    return new Response<string> { Success = true, Data = responseBody };
+                }
 
-                return await response.Content.ReadAsStringAsync();
+                return new Response<string> { Success = false, ErrorMessage = response.StatusCode.ToString() };
             }
             catch (Exception e)
             {

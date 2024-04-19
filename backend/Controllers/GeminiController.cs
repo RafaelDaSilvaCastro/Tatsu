@@ -15,26 +15,17 @@ namespace backend.Controllers
 
             if (string.IsNullOrEmpty(text))
             {
-                return BadRequest("O texto não pode ser vazio");
+                return BadRequest("O texto digitado não pode ser vazio");
             }
 
             var response = await ApiGemini.Generate(text);
 
-            // Ou, se a chamada ao método Generate retornar null:
-            if (response == null)
+            if (!response.Success)
             {
-                return NotFound();
+                return BadRequest(response);
             }
 
-            var dto = new ResultadoDTO { Mensagem = response };
-
-            return Ok(dto);
-        }
-
-        public class ResultadoDTO
-        {
-            public string Mensagem { get; set; }
-            // Outras propriedades, se necessário
+            return Ok(response);
         }
 
     }
