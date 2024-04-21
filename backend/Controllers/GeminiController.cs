@@ -18,7 +18,7 @@ namespace backend.Controllers
                 return BadRequest("O texto digitado não pode ser vazio");
             }
 
-            var response = await ApiGemini.Generate(text);
+            var response = await GeminiService.Generate(text);
 
             if (!response.Success)
             {

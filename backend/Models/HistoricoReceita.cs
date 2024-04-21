@@ -6,5 +6,4 @@
         public DateTime DataReceita { get; set; }
         public virtual Receita Receita{ get; set; }
     }
-    }
 }

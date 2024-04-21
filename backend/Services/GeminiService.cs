@@ -10,7 +10,7 @@ using static Google.Rpc.Context.AttributeContext.Types;
 
 namespace backend.Services
 {
-    public class ApiGemini
+    public class GeminiService
     {
         const string ProjectId = "tatsu-419619";
         const string Location = "us-central1";
@@ -25,9 +25,9 @@ namespace backend.Services
 
             if (response.Success)
             {
-                var geminiResponses = JsonConvert.DeserializeObject<List<GeminiResponse>>(response.Data);
+                var geminiDto = JsonConvert.DeserializeObject<List<GeminiDto>>(response.Data);
 
-                string fullText = string.Join("", geminiResponses
+                string fullText = string.Join("", geminiDto
                 .SelectMany(co => co.Candidates)
                 .SelectMany(c => c.Content.Parts)
                 .Select(p => p.Text));

@@ -1,4 +1,19 @@
+using backend.Data.Context;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//Conexao do banco
+//var connectionString = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("ConnectionString"));
+var connection = builder.Configuration["ConnectionString"];
+
+builder.Services.AddDbContext<UsuarioContext>(opts =>
+{
+    opts.UseSqlServer(connection);
+});
 
 builder.Services.AddControllers();
 

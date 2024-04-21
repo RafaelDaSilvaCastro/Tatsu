@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\Projeto_integrador\\Backend\\backend.csproj": {}
+    "C:\\Projetos\\Tatsu\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\Projeto_integrador\\Backend\\backend.csproj": {
+    "C:\\Projetos\\Tatsu\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\Projeto_integrador\\Backend\\backend.csproj",
+        "projectUniqueName": "C:\\Projetos\\Tatsu\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Projetos\\Projeto_integrador\\Backend\\backend.csproj",
+        "projectPath": "C:\\Projetos\\Tatsu\\backend\\backend.csproj",
         "packagesPath": "C:\\Users\\HENRIQUE\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\Projeto_integrador\\Backend\\obj\\",
+        "outputPath": "C:\\Projetos\\Tatsu\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HENRIQUE\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -51,6 +51,20 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.29, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.29, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.29, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
