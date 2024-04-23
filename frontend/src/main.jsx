@@ -16,8 +16,12 @@ import Erro from './routes/Erro/Index.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Login/>,
+    errorElement: <Erro/>,
+  },
+  {
+    path: "/Home",
     element: <Home/>,
-    errorElement: <Erro/>
   },
   {
     path: "/receita",
