@@ -11,6 +11,7 @@ import Home from './routes/Home/Index.jsx'
 import ConfigReceita from './routes/ConfigReceita/Index.jsx'
 import Receita from './routes/Receita/index.jsx'
 import Erro from './routes/Erro/Index.jsx'
+import Login from './routes/Login/Login.jsx';
 
 
 const router = createBrowserRouter([
