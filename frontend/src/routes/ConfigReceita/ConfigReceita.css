@@ -1,0 +1,101 @@
+.ingredient-adder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  width: 50%; /* Adjust overall component width here */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.ingredients-list li {
+  margin-bottom: 5px;
+  width: 100%;
+  border: 1px solid rgb(213, 203, 203);
+  border-radius: 5px;
+  padding: 2px;
+
+  display: flex; /* Enable flexbox for positioning */
+  justify-content: space-between; /* Distribute space between content and button */
+  align-items: center; /* Vertically align items */  
+
+}
+
+.remove-button {
+  margin-left: 10px; /* Existing margin */
+  padding: 5px; /* Add padding for button content */
+  font-size: 12px; /* Reduce font size for text */
+  background-color: #f00; /* Red background color (example) */
+  color: white; /* White text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Indicate clickable area */
+  background-color: red;
+
+}
+
+.ingredient-input {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.ingredient-input input {
+  flex: 1; /* Input takes up remaining space in the container */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.ingredient-input button {
+  padding: 8px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 30px; /* Set fixed width for button */
+}
+
+
+.button-toggle {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto;
+  width: 100%;
+}
+
+.button {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 800px;
+  background-color: #ece8e8;
+  color: #262525;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.button.active {
+  background-color: #175ba3; 
+  color: white; 
+}
+
+label{
+  margin-top: 40px;
+  width: 95%;
+}
