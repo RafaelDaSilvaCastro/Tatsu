@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 
 import './ConfigReceita.css'
 
+const options = [
+  { value: 'option1', label: '1 Pessoa' },
+  { value: 'option2', label: '2 Pessoa' },
+  { value: 'option3', label: '3 Pessoa' },
+  { value: 'option3', label: '4 Pessoa' },
+];
+
+
 export default function ConfigReceita(){
   const [ingredient, setIngredient] = useState('');
   const [ingredientsList, setIngredientsList] = useState([]);
@@ -26,8 +34,14 @@ export default function ConfigReceita(){
   };
 
   const handleButtonClick = (buttonIndex) => {
-    setActiveButton(buttonIndex); // Set the active button based on the index
+    setActiveButton(buttonIndex); 
   };
+
+  const [selectedOption, setSelectedOption] = useState(options[0].value); // Initial selected value
+
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+  };  
 
   return (
     <div className="ingredient-adder">
@@ -72,7 +86,19 @@ export default function ConfigReceita(){
         Dificil
       </button>
     </div>
-    {activeButton}
+    <div className="option-select">
+      <select value={selectedOption} onChange={handleChange}>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+    </div>
+    <div className="actions">
+      <button className='btnCancelar'>Cancelar</button>
+      <button className='btnGerar'>Gerar</button>          
+    </div>
     </div>
 
   );
