@@ -45,4 +45,10 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-bottom: 7px;
+}
+
+span{
+  color: #007bff;
+  cursor: pointer;
 }
