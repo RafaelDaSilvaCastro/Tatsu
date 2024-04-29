@@ -3,8 +3,9 @@ import { auth } from '../../firebaseConnection';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 
-
+import 'react-toastify/dist/ReactToastify.css';
 import './Login.css'
 
 export default function Login() {
@@ -17,20 +18,20 @@ export default function Login() {
     event.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert('Logado com sucesso!');
+      toast.success('Login realizado com sucesso!')
+      await new Promise(resolve => setTimeout(resolve, 2000));
       navigate('/Home')
     } catch (err) {
-      alert(err)
-      setErrorMessage('Erro ao logar: ' + err.message);
-      console.error(err);
+      const erro = JSON.stringify(err)
+      toast.error('Erro ao realizar login')
     }
     
   };
 
   return (
     <div className="login-container">
+      <ToastContainer/>
       <h1>Tatsu</h1>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email:</label>
         <input
