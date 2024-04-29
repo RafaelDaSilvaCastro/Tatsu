@@ -1,23 +1,29 @@
 import React, { useState } from 'react';
+import { auth } from '../../firebaseConnection';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+
 
 import './Login.css'
 
 export default function Login() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  async function handleSubmit (event) {
     event.preventDefault();
-
-    // Simulate login logic (replace with your actual authentication)
-    if (username === 'admin' && password === 'password123') {
-      // Login successful
-      console.log('Login successful!');
-      // Redirect or navigate to the main application
-    } else {
-      setErrorMessage('Invalid username or password');
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      alert('Logado com sucesso!');
+      navigate('/Home')
+    } catch (err) {
+      alert(err)
+      setErrorMessage('Erro ao logar: ' + err.message);
+      console.error(err);
     }
+    
   };
 
   return (
@@ -25,12 +31,12 @@ export default function Login() {
       <h1>Tatsu</h1>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Email:</label>
+        <label htmlFor="email">Email:</label>
         <input
           type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <label htmlFor="password">Senha:</label>
         <input

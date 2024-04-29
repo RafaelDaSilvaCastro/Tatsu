@@ -5,18 +5,21 @@ import { auth } from '../../firebaseConnection';
 import { 
   createUserWithEmailAndPassword
 } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();  
 
   async function handleSubmit(event) {
     event.preventDefault();
   
     try {
       await createUserWithEmailAndPassword(auth, email, password);
+      navigate('/Home')
       alert('FOI'); // Success message
     } catch (error) {
       alert('Erro ao criar conta '+ error);

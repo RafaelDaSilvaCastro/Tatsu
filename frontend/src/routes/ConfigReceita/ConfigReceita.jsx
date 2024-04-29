@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 import './ConfigReceita.css'
 
@@ -96,7 +97,7 @@ export default function ConfigReceita(){
       </select>
     </div>
     <div className="actions">
-      <button className='btnCancelar'>Cancelar</button>
+      <Link  to='/Home'><button className='btnCancelar'>Cancelar</button></Link >
       <button className='btnGerar'>Gerar</button>          
     </div>
     </div>

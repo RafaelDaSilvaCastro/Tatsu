@@ -6,7 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-
+import Private from './routes/Private/Private.jsx';
 import Home from './routes/Home/Index.jsx'
 import ConfigReceita from './routes/ConfigReceita/ConfigReceita.jsx'
 import Recipe from './routes/Receita/Recipe.jsx'
@@ -28,15 +28,15 @@ const router = createBrowserRouter([
   },  
   {
     path: "/Home",
-    element: <Home />,
+    element: <Private > <Home /> </Private>,
   },
   {
     path: "/receita",
-    element: <Recipe />
+    element: <Private><Recipe /></Private>
   },
   {
     path: "/configreceita",
-    element: <ConfigReceita />
+    element: <Private><ConfigReceita /></Private>
   }
 ]);
 
