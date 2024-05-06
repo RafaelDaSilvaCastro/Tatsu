@@ -4,7 +4,7 @@ import './Header.css'; // Estilo CSS para o cabeçalho
 const Header = ({ userPhoto, siteLogo }) => {
   return (
     <header className="header">
-      <div className="menu-toggle">&#9776;</div>
+      <div className="menu-toggle">&#332c2c66;</div>
       <div className="logo">
         <img src={siteLogo} alt="Logo do site" />
       </div>
