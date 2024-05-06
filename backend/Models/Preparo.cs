@@ -1,10 +1,22 @@
-﻿namespace backend.Models
+﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
+using System.Collections.ObjectModel;
+
+namespace backend.Models
 {
     public class Preparo
     {
-        public int Id { get; set; }
-        public string numero_preparo { get; set; }
-        public string descricao { get; set; }
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string? Id { get; set; }
+        [BsonElement("passos")]
+        public Dictionary<string,string> Passo{ get; set; }
+
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string ReceitaId { get; set; }
+
+        // Referência à Receita associada
+        [BsonIgnore]
         public virtual ICollection<Receita> Receitas{ get; set; }
 
     }

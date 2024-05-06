@@ -1,12 +1,9 @@
 ﻿using backend.Data.Dto;
-using backend.Rest;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Http;
 using Newtonsoft.Json;
-using System.Formats.Asn1;
 using System.Net.Http.Headers;
 using System.Text;
-using static Google.Rpc.Context.AttributeContext.Types;
 
 namespace backend.Services
 {
@@ -31,9 +28,8 @@ namespace backend.Services
                 .SelectMany(co => co.Candidates)
                 .SelectMany(c => c.Content.Parts)
                 .Select(p => p.Text));
-
-                //return fullText;
-                return new Response<string> { Success = true, Data = fullText };
+;
+                return new Response<string> { Success = true, Text = fullText, Data = geminiDto.ToString()};
             }
 
             return new Response<string> { Success = false, ErrorMessage = response.ErrorMessage };            
@@ -53,10 +49,10 @@ namespace backend.Services
                 },
                 generation_config = new
                 {
-                    temperature = 0.4,
+                    temperature = 0.1,
                     top_p = 1,
                     top_k = 32,
-                    max_output_tokens = 2048
+                    max_output_tokens = 1000
                 }
             };
             return JsonConvert.SerializeObject(payload);

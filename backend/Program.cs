@@ -1,19 +1,28 @@
+using backend.Controllers;
 using backend.Data.Context;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using backend.Data.Repositories;
+using backend.Interfaces;
+using backend.Rules;
+using backend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //Conexao do banco
 //var connectionString = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("ConnectionString"));
-var connection = builder.Configuration["ConnectionString"];
+//var connection = builder.Configuration["ConnectionString"];
 
-builder.Services.AddDbContext<UsuarioContext>(opts =>
-{
-    opts.UseSqlServer(connection);
-});
+builder.Services.Configure<MongoDbConfig>(builder.Configuration.GetSection("MongoDbConfig"));
+builder.Services.AddSingleton<ReceitaRegras>();
+builder.Services.AddSingleton<ReceitaController>();
+builder.Services.AddSingleton<ReceitaServices>();
+builder.Services.AddSingleton<ReceitaRepositoy>();
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+//builder.Services.AddDbContext<UsuarioContext>(opts =>
+//{
+//    opts.UseSqlServer(connection);
+//});
 
 builder.Services.AddControllers();
 
