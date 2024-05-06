@@ -8,12 +8,15 @@ import CardReceita from '../../assets/Component/UltimasReceitas/CardReceita'
 import { useEffect } from "react";
 
 
+import Header from "../../assets/Component/Header/Header";
+
 export default function Home() {
   const navigate = useNavigate();
 
   return (
     <>
       <div className="conteiner">
+        <Header/>
         <section>
           <div className="title">
             <img src='https://img.freepik.com/fotos-gratis/variedade-plana-com-deliciosa-comida-brasileira_23-2148739179.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1712793600&semt=sph'/>

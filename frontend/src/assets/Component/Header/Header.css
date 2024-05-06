@@ -1,0 +1,24 @@
+/* Header.css */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #FF6E40;
+}
+
+.menu-toggle {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.logo img {
+  width: 150px; /* Ajuste conforme necessário */
+}
+
+.user-photo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
