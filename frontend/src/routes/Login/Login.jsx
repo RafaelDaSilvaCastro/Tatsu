@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import './Login.css'
+import logo from './logo.png'
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -14,7 +15,7 @@ export default function Login() {
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
-  async function handleSubmit (event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -25,31 +26,37 @@ export default function Login() {
       const erro = JSON.stringify(err)
       toast.error('Erro ao realizar login')
     }
-    
+
   };
 
   return (
     <div className="login-container">
-      <ToastContainer/>
-      <h1>Tatsu</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="text"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="password">Senha:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-        <p>Não possui conta? <Link to='/register'><span>clique aqui</span></Link></p>
-      </form>
+      <ToastContainer />
+      <div className='imagem'>
+        <img className='logo' src={logo} />
+      </div>
+      <div className='login'>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <form onSubmit={handleSubmit}>
+          <h2>Login</h2>
+          <input
+            type="text"
+            id="email"
+            placeholder="✉️ E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            id="password"
+            placeholder="🔒 Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit">Login</button>
+          <span>Não possui conta? <Link to='/register'>clique aqui</Link></span>
+        </form>
+      </div>
     </div>
   );
 }

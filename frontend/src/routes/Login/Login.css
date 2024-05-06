@@ -1,16 +1,43 @@
+* {
+  font-family: Gill Sans, sans-serif;
+}
+
+.imagem {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 65%;
+  height: 75%;
+}
+
+.login {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #f08344;
+}
+
 .login-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   height: 100vh;
   width: 100vw;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
 }
 
-h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
+h2 {
+  text-align: center;
 }
 
 .error-message {
@@ -21,9 +48,9 @@ h1 {
 form {
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
   width: 300px;
   padding: 20px;
-  border: 1px solid #ccc;
   border-radius: 5px;
 }
 
@@ -33,22 +60,30 @@ label {
 
 input {
   padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-bottom: 10px;
+  border: none;
+  border-radius: 5%;
+  background-color: #f5ebeb;
+  margin-top: 1rem;
 }
+
+input:focus  {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+} 
 
 button {
   padding: 10px 15px;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 7px;
+  margin-top: 1.3rem;
+  text-align: center;
 }
 
-span{
-  color: #007bff;
-  cursor: pointer;
+span {
+  text-align: center;
+  font-size: 0.7rem;
+  margin-top: 1rem;
 }

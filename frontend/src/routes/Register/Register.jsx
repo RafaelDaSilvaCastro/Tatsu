@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { auth } from '../../firebaseConnection';
-
+import logo from '../Login/logo.png'
 
 import { 
   createUserWithEmailAndPassword
@@ -29,25 +29,30 @@ export default function Register() {
 
   return (
     <div className="login-container">
-      <h1>Crie sua conta no Tatsu</h1>
+      <div className='imagem'>
+        <img className='logo' src={logo}/>
+      </div>
+      <div className='login'>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Email:</label>
+      <h2>Crie sua conta no Tatsu</h2>
         <input
           type="text"
           id="email"
+          placeholder="✉️ E-mail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label htmlFor="password">Senha:</label>
         <input
           type="password"
           id="password"
+          placeholder="🔒 Senha"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Cadastrar</button>
       </form>
+      </div>
     </div>
   );
 }
