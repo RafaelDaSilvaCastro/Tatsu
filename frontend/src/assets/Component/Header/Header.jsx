@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css'; // Estilo CSS para o cabeçalho
 
-import logo from './logo.png'
+import logo2 from './logo2.png'
 import userPhoto from './userPhoto.png'
 
 const Header = () => {
@@ -14,8 +14,8 @@ const Header = () => {
             <span className='linha'></span>
             <span className='linha'></span>
         </div>
-        <div className="logo">
-          <img src={logo} alt="Logo do site" />
+        <div className="logo2">
+          <img src={logo2} alt="Logo do site" />
         </div>
         <div className="user-photo">
           <img src={userPhoto} alt="Foto do usuário" />
