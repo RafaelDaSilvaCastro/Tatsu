@@ -1,20 +1,47 @@
 /* Header.css */
 
 .header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 5px 10px;
+  background-color: #4A148C;
+}
+
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #FF6E40;
+  padding: 0 20px;
 }
 
 .menu-toggle {
-  font-size: 20px;
+  max-width: 40px;
+}
+
+.linha {
+  width: 30px;
+  height: 2px;
+  background-color: #ffff;
+  display: block;
+  margin: 4px auto;
+  transform-origin: center;
   cursor: pointer;
 }
 
+.logo {
+  max-width: 50px;
+}
+
 .logo img {
-  width: 150px; /* Ajuste conforme necessário */
+  height: 100%;
+  max-width: 50px;
+}
+
+.user-photo {
+  max-width: 40px;
 }
 
 .user-photo img {
