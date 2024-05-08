@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 import './ConfigReceita.css'
 
+import Header from "../../assets/Component/Header/Header";
+
+
 const options = [
   { value: 'option1', label: '1 Pessoa' },
   { value: 'option2', label: '2 Pessoa' },
@@ -45,7 +48,9 @@ export default function ConfigReceita(){
   };  
 
   return (
+    
     <div className="ingredient-adder">
+      <Header/>
       <h1>Lista de ingredientes</h1>
       <ul className="ingredients-list">
         {ingredientsList.map((ingredient) => (
