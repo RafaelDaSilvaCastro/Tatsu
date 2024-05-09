@@ -8,7 +8,7 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px;
-
+  box-shadow: 1px 1px lightgray;
 }
 
 h1 {
@@ -45,7 +45,7 @@ h1 {
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Indicate clickable area */
   background-color: red;
-
+  
 }
 
 .ingredient-input {
@@ -90,6 +90,7 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s; /* Smooth transition for background color */
+  border-radius: 15px;
 }
 
 .button.active {
@@ -130,6 +131,7 @@ label{
 .btnCancelar{
   background-color: #f00;
   transition: background-color 0.3s ease;
+  border-radius: 15px;
 }
 
 .btnCancelar:hover{
@@ -139,6 +141,11 @@ label{
 .btnGerar {
   background-color: green;
   transition: background-color 0.3s ease;
+  border-radius: 15px;
+}
+
+.btnGerar:hover {
+  background-color: rgb(0, 95, 0);
 }
 
 .btnGerar:hover {
