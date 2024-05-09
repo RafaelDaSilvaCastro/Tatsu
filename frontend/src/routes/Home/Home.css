@@ -72,6 +72,7 @@
   margin: 24px;
   font-size: 21px;
   text-align: center;
+  font-family: "Bungee";
 }
 
 .btn button:hover{
@@ -83,13 +84,14 @@
 }
 
 .ult-txt h2 {
+  font-size: 28px;
   text-align: left;
   margin-left: 80px;
   font-family: "Bungee";
 }
 .historico{
   margin: auto;
-  margin: 30px 80px;
+  margin: 20px 60px;
 }
 
 .historico h2{
@@ -97,6 +99,27 @@
   font-family: "Oswald";
   font-size: 24px;
   margin-bottom: 20px;
+}
+
+.historico img{
+  box-shadow: 1px 2px lightgray;
+  border-radius: 10px;
+}
+
+h3{
+  font-family: "Oswald";
+  margin-left: 21px;
+}
+
+h4{
+  font-family: "Oswald";
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+ul li {
+  font-family: "Bungee";
+}
 }
 
 .historico img{
