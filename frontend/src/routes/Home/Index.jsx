@@ -22,12 +22,12 @@ export default function Home() {
             <img className="image-title" src='https://img.freepik.com/fotos-gratis/variedade-plana-com-deliciosa-comida-brasileira_23-2148739179.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1712793600&semt=sph'/>
             <h1>Gere receitas com apenas um clique!</h1>
           </div>
-          <Link to='/ConfigReceita'>
             <div className="gerar-receita">
-              <button>Gerar receita</button>
+              <Link to='/ConfigReceita'>
+                <button>Gerar receita</button>
+              </Link>
               <p>Forneça seus ingredientes <br></br> e gere uma receita!</p>
             </div>
-          </Link>
           </section>
           <div className="ult-txt">
             <h2>Ultimas receitas</h2>  
