@@ -7,10 +7,10 @@ import Header from "../../assets/Component/Header/Header";
 
 
 const options = [
-  { value: 'option1', label: '1 Pessoa' },
-  { value: 'option2', label: '2 Pessoa' },
-  { value: 'option3', label: '3 Pessoa' },
-  { value: 'option3', label: '4 Pessoa' },
+  { value: '1', label: '1 Pessoa' },
+  { value: '2', label: '2 Pessoa' },
+  { value: '3', label: '3 Pessoa' },
+  { value: '4', label: '4 Pessoa' },
 ];
 
 
