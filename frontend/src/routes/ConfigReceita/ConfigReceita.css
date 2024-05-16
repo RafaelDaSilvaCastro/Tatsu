@@ -58,11 +58,15 @@ h1 {
 .ingredient-input input {
   flex: 1; /* Input takes up remaining space in the container */
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #ffffff;
   border-radius: 3px;
   margin-right: 5px;
+  background-color: white;
+  border: 1px solid #c2c2c2;
 
 }
+
+
 
 .ingredient-input button {
   padding: 8px;
@@ -74,24 +78,30 @@ h1 {
   width: 30px; /* Set fixed width for button */
 }
 
+.nome-campo{
+  font-weight: bold;
+  width: 100%;
+}
+
+.borda {
+  width: 100%;
+  margin-top: 1rem;
+}
 
 .button-toggle {
   display: flex;
   justify-content: space-around;
-  margin: 20px auto;
   width: 100%;
 }
 
 .button {
-  padding: 10px 20px;
   border: 1px solid #ccc;
-  border-radius: 800px;
+  width: 100%;
+  height: 100%;
   background-color: #ece8e8;
   color: #262525;
-  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s; /* Smooth transition for background color */
-  border-radius: 15px;
 }
 
 .button.active {
@@ -106,7 +116,7 @@ label{
 
 .option-select {
   margin: 20px auto;
-  width: 95%; 
+  width: 100%; 
 }
 
 .option-select select {
