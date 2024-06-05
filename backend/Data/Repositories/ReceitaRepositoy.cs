@@ -47,16 +47,57 @@ namespace backend.Data.Repositories
                 return new Response<List<Receita>> { Success = false, ErrorMessage = "Erro interno: " + e.Message };
             }             
 
-        }            
+        }
 
-        public async Task<Receita> GetAsync(string id) =>
-            await _receitaCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+        public async Task<Response<Receita>> GetAsync(string id)
+        {
+            try
+            {
+                var receita = await _receitaCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
-        public async Task UpdateAsync(string id, Receita receita) =>
-    await _receitaCollection.ReplaceOneAsync(x => x.Id == id, receita);
+                return receita == null
+                ? new Response<Receita> { Success = false, ErrorMessage = "Receita não encontrada" }
+                : new Response<Receita> { Success = true, Data = receita };
 
-        public async Task RemoveAsync(string id) =>
-                await _receitaCollection.DeleteOneAsync(x => x.Id == id);
+            }
+            catch (Exception ex)
+            {
+                return new Response<Receita> { Success = false, ErrorMessage = "Erro interno: " + ex.Message };
+            }
+        }
+
+
+        public async Task<Response<string>> UpdateAsync(string id, Receita receita) {
+            try
+            {
+                var response = await _receitaCollection.ReplaceOneAsync(x => x.Id == id, receita);
+
+                if (response.ModifiedCount == 0)
+                {
+                    return new Response<string> { Success = false, ErrorMessage = "Documento não encontrado ou não modificado" };
+                }
+
+                return new Response<string> { Success = true, Data = "Documento atualizado com sucesso" };
+            }
+            catch (Exception ex)
+            {
+                return new Response<string> { Success = false, ErrorMessage = "Erro interno: " + ex.Message };
+            }
+        }
+
+
+        public async Task<Response<string>> RemoveAsync(string id) {
+            try
+            {
+                var response = await _receitaCollection.DeleteOneAsync(x => x.Id == id);
+
+                return new Response<string> { Success = true };
+            }
+            catch (Exception ex)
+            {
+                return new Response<string> { Success = false, ErrorMessage = "Erro interno: " + ex.Message };
+            }
+        }
 
     }
 }

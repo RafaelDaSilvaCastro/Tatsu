@@ -26,7 +26,22 @@ namespace backend.Services
 
         public async Task<Response<List<Receita>>> Receitas()
         {
-            return await _receitaRegras.Receitas();
+            return await _receitaRegras.TodasReceitas();
+        }
+
+        public async Task<Response<string>> AtualizarReceita(string id, ReceitaDto receita)
+        {
+            return await _receitaRegras.AtualizarReceita(id, receita);
+        }
+
+        public async Task<Response<string>> RemoverReceita(string id)
+        {
+            return await _receitaRegras.RemoveAsync(id);
+        }
+
+        public async Task<Response<Receita>> Receita(string id)
+        {
+            return await _receitaRegras.Receita(id);
         }
     }
 }

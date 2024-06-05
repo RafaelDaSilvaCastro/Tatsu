@@ -17,22 +17,28 @@ namespace backend.Services
 
         public async static Task<Response<string>> Generate(string text)
         {
-            string payload = GeneratePayload(text);
-            var response = await SendRequest(payload);
-
-            if (response.Success)
+            try
             {
-                var geminiDto = JsonConvert.DeserializeObject<List<GeminiDto>>(response.Data);
+                string payload = GeneratePayload(text);
+                var response = await SendRequest(payload);
 
-                string fullText = string.Join("", geminiDto
-                .SelectMany(co => co.Candidates)
-                .SelectMany(c => c.Content.Parts)
-                .Select(p => p.Text));
-;
-                return new Response<string> { Success = true, Text = fullText, Data = geminiDto.ToString()};
+                if (response.Success)
+                {
+                    var geminiDto = JsonConvert.DeserializeObject<List<GeminiDto>>(response.Data);
+
+                    string fullText = string.Join("", geminiDto
+                    .SelectMany(co => co.Candidates)
+                    .SelectMany(c => c.Content.Parts)
+                    .Select(p => p.Text));
+                    ;
+                    return new Response<string> { Success = true, Text = fullText, Data = geminiDto.ToString() };
+                }
+
+                return new Response<string> { Success = false, ErrorMessage = response.ErrorMessage };
             }
-
-            return new Response<string> { Success = false, ErrorMessage = response.ErrorMessage };            
+            catch (Exception ex){
+                return new Response<string> { Success = false, ErrorMessage = "Falha ao solicitar receita: " + ex.Message};
+            }                 
         }
 
         private static string GeneratePayload(string text)

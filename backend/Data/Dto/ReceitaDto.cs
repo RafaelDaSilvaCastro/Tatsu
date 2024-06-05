@@ -1,5 +1,8 @@
 ﻿using backend.Enum.Receita;
 using backend.Models;
+using backend.Utils;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
 using Newtonsoft.Json;
 
 namespace backend.Data.Dto
@@ -8,18 +11,21 @@ namespace backend.Data.Dto
     {
         [JsonProperty("Titulo")]
         public string Titulo { get; set; }
-
+        
         [JsonProperty("Dificuldade")]
         public DificuldadeReceita Dificuldade { get; set; }
-
+        
         [JsonProperty("Porcao")]
-        public int Porcao { get; set; }
-
+        public string Porcao { get; set; }
+        
         [JsonProperty("Ingredientes")]
-        public Dictionary<string, string> Ingredientes { get; set; }
-
+        [JsonConverter(typeof(Conversor))]
+        public Dictionary<string, Dictionary<string, string>> Ingredientes { get; set; }
+        
         [JsonProperty("Preparo")]
-        public Dictionary<string, string> Preparo { get; set; }
+        [JsonConverter(typeof(Conversor))]
+        //public Dictionary<string,string> Preparo { get; set; }
+        public Dictionary<string, Dictionary<string, string>> Preparo { get; set; }
 
     }
 
