@@ -26,7 +26,7 @@ namespace backend.Data.Repositories
                 await _receitaCollection.InsertOneAsync(receita);
 
                 // A operação de inserção foi concluída com sucesso
-                return new Response<string> { Success = true};
+                return new Response<string> { Success = true, Text = "Receita criada com sucesso", Data = receita.Id.ToString() };
             }
             catch (Exception ex)
             {
@@ -77,7 +77,7 @@ namespace backend.Data.Repositories
                     return new Response<string> { Success = false, ErrorMessage = "Documento não encontrado ou não modificado" };
                 }
 
-                return new Response<string> { Success = true, Data = "Documento atualizado com sucesso" };
+                return new Response<string> { Success = true, Text = "Documento atualizado com sucesso", Data = id };
             }
             catch (Exception ex)
             {
