@@ -9,6 +9,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 10vh;
+  flex-wrap: wrap;
 
 }
 
@@ -30,7 +31,7 @@
   line-height: 1;
   font-weight: 400;
   font-style: normal;
-  margin-top: 24px;
+  margin: 24px;
 }
 
 .title h1{
@@ -39,7 +40,7 @@
   flex-direction: row;
   text-align: center;
   padding: 0;
-  font-size: 36px;
+  font-size: 32px;
   font-family: "Bungee";
 }
 
@@ -49,6 +50,7 @@
 
 .gerar-receita{
   margin: auto;
+  margin-top: 3rem;
   margin-top: 20px;
   margin-left: 80px;
   padding: 10px;
@@ -62,12 +64,13 @@
 
 }
 
-.gerar-receita button{
+.gerar-receita button{ 
   background-color: rgb(66, 88, 214);
   font-size: 21px;
   font-weight: bold;
   font-family: 'Lato', sans-serif;
   color: white;
+  text-decoration: underline;
 
   background-color: #0979B9;
   display:  block;
@@ -76,7 +79,6 @@
   border: none;
   width: 180px;
   height: 70px;
-
   display:  block;
   margin: auto;
   margin-top: 10px;
@@ -116,23 +118,22 @@
   margin: 30px 80px;
 
   font-size: 28px;
-  text-align: left;
-  margin-left: 80px;
+  text-align: center;
+  padding-bottom: 0.8rem;
   font-family: "Bungee";
   text-decoration: underline;
 }
 
 .borda-historico {
-  margin: auto;
   margin: 20px 60px;
   width: 100%;
   max-width: 67rem;
+  min-width: 25rem;
   margin-top: 40px;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  justify-content: center;
 }
 
 .card-historico{
@@ -160,12 +161,8 @@
 }
 
 .historico img{
-
   box-shadow: 1px 2px lightgray;
   border-radius: 10px;
-}
-
-
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
@@ -185,3 +182,9 @@ ul li {
   font-family: "Bungee";
 }
 
+@media (max-width: 800px) {
+  .title h1{
+    width: 100%;
+    font-size: 24px;
+  }
+}
