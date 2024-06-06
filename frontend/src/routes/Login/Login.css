@@ -66,11 +66,11 @@ input {
   margin-top: 1rem;
 }
 
-input:focus  {
-  box-shadow: 0 0 0 0;
-  border: 0 none;
+ input:focus  {
+  box-shadow: 1px 2px 1px rgba(4, 51, 169, 0.67);
+  border: 1px solid #007bff;
   outline: 0;
-} 
+}  
 
 button {
   padding: 10px 15px;
