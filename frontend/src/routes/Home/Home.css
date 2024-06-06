@@ -1,7 +1,3 @@
-body, html {
-  height: 100%;
-  margin: 0;
-}
 
 .conteiner{
   flex: 1;
@@ -42,9 +38,6 @@ body, html {
   display: flex;
   flex-direction: row;
   text-align: center;
-  padding: 0;
-  font-size: 36px;
-  font-family: "Bungee";
 }
 
 .title img{
@@ -58,10 +51,14 @@ body, html {
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
 }
 
 .gerar-receita button{
   background-color: rgb(66, 88, 214);
+  font-size: 21px;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
   color: white;
   display:  block;
   margin: auto;
@@ -81,7 +78,6 @@ body, html {
   margin: 24px;
   font-size: 21px;
   text-align: center;
-  font-family: "Bungee";
 }
 
 .btn button:hover{
@@ -127,6 +123,7 @@ body, html {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   padding: 10px;
+
 }
 
 .historico h2{
@@ -137,6 +134,7 @@ body, html {
 }
 
 .historico img{
+
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
@@ -155,3 +153,4 @@ h4{
 ul li {
   font-family: "Bungee";
 }
+
