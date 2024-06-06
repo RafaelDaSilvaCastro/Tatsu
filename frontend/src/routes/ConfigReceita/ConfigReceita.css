@@ -56,7 +56,7 @@ h1 {
 }
 
 .ingredient-input input {
-  flex: 1; /* Input takes up remaining space in the container */
+  flex: 1;
   padding: 8px;
   border: 1px solid #ffffff;
   border-radius: 3px;
