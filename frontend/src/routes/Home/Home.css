@@ -1,0 +1,157 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.conteiner{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10vh;
+
+}
+
+.conteiner section{
+  display: flex;
+  flex-direction: row;
+}
+
+.image-title {
+  box-shadow: 1px 2px lightgray;
+  border-radius: 10px;
+}
+.title{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 24px;
+}
+
+.title h1{
+  margin: 10px 60px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  padding: 0;
+  font-size: 36px;
+  font-family: "Bungee";
+}
+
+.title img{
+  width: 250px;
+}
+
+.gerar-receita{
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.gerar-receita button{
+  background-color: rgb(66, 88, 214);
+  color: white;
+  display:  block;
+  margin: auto;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 180px;
+  height: 70px;
+  font-size: 21px;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.gerar-receita p{
+  margin: 24px;
+  font-size: 21px;
+  text-align: center;
+  font-family: "Bungee";
+}
+
+.btn button:hover{
+  background-color: rgb(37, 51, 129);
+}
+
+.ult-txt {
+  margin-top: 30px;
+}
+
+.ult-txt h2 {
+  font-size: 28px;
+  text-align: left;
+  margin-left: 80px;
+  font-family: "Bungee";
+  text-decoration: underline;
+}
+
+.borda-historico {
+  margin: auto;
+  margin: 20px 60px;
+  width: 100%;
+  max-width: 67rem;
+  margin-top: 40px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+}
+
+.card-historico{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+}
+
+.historico{
+  margin: 20px 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+}
+
+.historico h2{
+  margin: auto;
+  font-family: "Oswald";
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.historico img{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+h3{
+  font-family: "Oswald";
+  margin-left: 21px;
+}
+
+h4{
+  font-family: "Oswald";
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+ul li {
+  font-family: "Bungee";
+}
