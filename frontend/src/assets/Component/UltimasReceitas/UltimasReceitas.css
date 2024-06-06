@@ -5,12 +5,6 @@
   padding: 0;
 }
 
-.textCard{
-  font-family: "Roboto", sans-serif;
-  font-weight: 100;
-  font-style: normal; 
-}
-
 .container{
   display: flex;
   flex-direction: row;
