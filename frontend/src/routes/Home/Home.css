@@ -1,4 +1,10 @@
+
 .conteiner{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 80vw;
   margin-left: auto;
   margin-right: auto;
@@ -49,6 +55,11 @@
   border: 1px solid lightgrey;
   border-radius: 10px;
   box-shadow: 1px 2px lightgray ;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
 }
 
 .gerar-receita button{
@@ -57,6 +68,7 @@
   font-weight: bold;
   font-family: 'Lato', sans-serif;
   color: white;
+
   background-color: #0979B9;
   display:  block;
   margin: auto;
@@ -64,6 +76,17 @@
   border: none;
   width: 180px;
   height: 70px;
+
+  display:  block;
+  margin: auto;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 180px;
+  height: 70px;
+  font-size: 21px;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
   border-radius: 50px;
   cursor: pointer;
 }
@@ -83,6 +106,7 @@
 }
 
 .ult-txt h2 {
+
   text-align: left;
   margin-left: 80px;
   font-family: "Bungee";
@@ -90,6 +114,42 @@
 .historico{
   margin: auto;
   margin: 30px 80px;
+
+  font-size: 28px;
+  text-align: left;
+  margin-left: 80px;
+  font-family: "Bungee";
+  text-decoration: underline;
+}
+
+.borda-historico {
+  margin: auto;
+  margin: 20px 60px;
+  width: 100%;
+  max-width: 67rem;
+  margin-top: 40px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+}
+
+.card-historico{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+}
+
+.historico{
+  margin: 20px 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+
 }
 
 .historico h2{
@@ -100,6 +160,28 @@
 }
 
 .historico img{
+
   box-shadow: 1px 2px lightgray;
   border-radius: 10px;
 }
+
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+h3{
+  font-family: "Oswald";
+  margin-left: 21px;
+}
+
+h4{
+  font-family: "Oswald";
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+ul li {
+  font-family: "Bungee";
+}
+
