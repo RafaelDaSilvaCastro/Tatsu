@@ -1,4 +1,14 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
 .conteiner{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 80vw;
   margin-left: auto;
   margin-right: auto;
@@ -44,26 +54,25 @@
 .gerar-receita{
   margin: auto;
   margin-top: 20px;
-  margin-left: 80px;
   padding: 10px;
-  border: 1px solid lightgrey;
+  border: 1px solid #ddd;
   border-radius: 10px;
-  box-shadow: 1px 2px lightgray ;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .gerar-receita button{
   background-color: rgb(66, 88, 214);
-  font-size: 21px;
-  font-weight: bold;
-  font-family: 'Lato', sans-serif;
   color: white;
-  background-color: #0979B9;
   display:  block;
   margin: auto;
   margin-top: 10px;
-  border: none;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   width: 180px;
   height: 70px;
+  font-size: 21px;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
   border-radius: 50px;
   cursor: pointer;
 }
@@ -88,11 +97,36 @@
   text-align: left;
   margin-left: 80px;
   font-family: "Bungee";
+  text-decoration: underline;
+}
+
+.borda-historico {
+  margin: auto;
+  margin: 20px 60px;
+  width: 100%;
+  max-width: 67rem;
+  margin-top: 40px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+}
+
+.card-historico{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
 }
 
 .historico{
-  margin: auto;
-  margin: 20px 60px;
+  margin: 20px 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 10px;
 }
 
 .historico h2{
@@ -103,7 +137,7 @@
 }
 
 .historico img{
-  box-shadow: 1px 2px lightgray;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
 
