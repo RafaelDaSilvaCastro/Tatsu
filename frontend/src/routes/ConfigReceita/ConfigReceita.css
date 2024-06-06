@@ -2,13 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px auto;
+  margin: 10px auto;
   margin-top: 15vh;
-  width: 50%; /* Adjust overall component width here */
+  width: 50%;
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 10px;
-  box-shadow: 1px 1px lightgray;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.ingredient-adder h1 {
+  font-family: "Bungee";
 }
 
 h1 {
@@ -23,29 +27,29 @@ h1 {
 }
 
 .ingredients-list li {
-  margin-bottom: 5px;
-  width: 100%;
+  width: 98%;
   border: 1px solid rgb(213, 203, 203);
-  border-radius: 5px;
-  padding: 2px;
-
-  display: flex; /* Enable flexbox for positioning */
-  justify-content: space-between; /* Distribute space between content and button */
-  align-items: center; /* Vertically align items */  
-
+  border-radius: 3px;
+  max-height: 38px;
+  padding-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: auto;
 }
 
 .remove-button {
-  margin-left: 10px; /* Existing margin */
-  padding: 5px; /* Add padding for button content */
-  font-size: 12px; /* Reduce font size for text */
-  background-color: #f00; /* Red background color (example) */
-  color: white; /* White text color */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Indicate clickable area */
+  margin-right: 8px;
+  padding: 8px;
+  font-size: 12px;
+  background-color: #f00;
+  color: white;
+  border: none;
+  border-radius: 3px; 
+  cursor: pointer; 
   background-color: red;
-  
+  margin-bottom: 1.2rem;
+  width: 30px;
 }
 
 .ingredient-input {
@@ -57,6 +61,7 @@ h1 {
 
 .ingredient-input input {
   flex: 1;
+  padding: 12px;
   padding: 8px;
   border: 1px solid #ffffff;
   border-radius: 3px;
@@ -66,21 +71,23 @@ h1 {
 
 }
 
-
-
 .ingredient-input button {
-  padding: 8px;
+  padding: 4px;
   background-color: #007bff;
+  margin-bottom: .4rem;
   color: white;
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  width: 30px; /* Set fixed width for button */
+  width: 30px;
+  font-size: 20px;
 }
 
 .nome-campo{
   font-weight: bold;
   width: 100%;
+  font-size: large;
+  font-family: "Bungee";
 }
 
 .borda {
@@ -101,7 +108,9 @@ h1 {
   background-color: #ece8e8;
   color: #262525;
   cursor: pointer;
-  transition: background-color 0.3s; /* Smooth transition for background color */
+  transition: background-color 0.3s;
+  margin-top: 10px;
+  border-radius: 3px;
 }
 
 .button.active {
