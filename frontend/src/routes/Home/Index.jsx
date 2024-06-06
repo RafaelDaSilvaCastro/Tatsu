@@ -31,9 +31,9 @@ export default function Home() {
         </section>
           <div className="borda-historico">
               <div className="ult-txt">
-                <h2>Ultimas receitas</h2>  
+                <h2>Últimas receitas</h2>  
               </div>
-              <section  className="card-historico">    
+              <section className="card-historico">    
                   <div className="historico">
                     <CardReceita className="img" title="Lasanha de Frango" ingredients={["500 g de massa de lasanha", "500 g de frango", "2 caixas de creme de leite"]} url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUL_RKyGzqiIMNpRSLzWKsr1wq0Dwc0-3H4A&s"/>
                   </div>
