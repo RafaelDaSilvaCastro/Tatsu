@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css'; // Estilo CSS para o cabeçalho
 
-import logo2 from './logo2.png'
+import logo2 from '../../../routes/Login/logo.png'
 import userPhoto from './userPhoto.png'
 import { Link } from 'react-router-dom';
 

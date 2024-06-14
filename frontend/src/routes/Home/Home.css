@@ -1,190 +1,142 @@
 
 .conteiner{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 80vw;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10vh;
-  flex-wrap: wrap;
-
-}
-
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vh;       
+    flex-wrap: wrap;
+  
+  }
+  
 .conteiner section{
-  display: flex;
-  flex-direction: row;
-}
-
-.image-title {
-  box-shadow: 1px 2px lightgray;
-  border-radius: 10px;
-}
-.title{
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  line-height: 1;
-  font-weight: 400;
-  font-style: normal;
-  margin: 24px;
-}
-
-.title h1{
-  margin: 10px 60px;
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  padding: 0;
-  font-size: 32px;
-  font-family: "Bungee";
-}
-
-.title img{
-  width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+.gerar-receita div.emoji-gif{
+    display: flex;
+    height: 3rem;
+    width: 3rem;
+    font-size: 3rem;
+    margin-top: 4.5rem;
 }
 
 .gerar-receita{
-  margin: auto;
-  margin-top: 3rem;
-  margin-top: 20px;
-  margin-left: 80px;
-  padding: 10px;
-  border: 1px solid lightgrey;
-  border-radius: 10px;
-  box-shadow: 1px 2px lightgray ;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-
+    width: 100%; 
+    display: flex;
+    margin-left: 150px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    line-height: 1;
+    font-weight: 400;
+    margin: 24px;
 }
 
-.gerar-receita button{ 
-  background-color: rgb(66, 88, 214);
-  font-size: 21px;
-  font-weight: bold;
-  font-family: 'Lato', sans-serif;
-  color: white;
-  text-decoration: underline;
+.gerar-receita h1{
+    margin: 10px 60px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding: 0;
+    font-size: 32px;
+    font-family: "Bungee";
+}
 
-  background-color: #0979B9;
-  display:  block;
-  margin: auto;
-  margin-top: 10px;
-  border: none;
-  width: 180px;
-  height: 70px;
-  display:  block;
-  margin: auto;
-  margin-top: 10px;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  width: 180px;
-  height: 70px;
-  font-size: 21px;
-  font-weight: bold;
-  font-family: 'Lato', sans-serif;
-  border-radius: 50px;
+.gerar-receita p {
+  color: rgb(104, 104, 104);
+}
+
+
+
+.gerar-receita button {
+  appearance: button;
+  backface-visibility: hidden;
+  background-color: #405cf5;
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+  box-sizing: border-box;
+  color: #fff;
   cursor: pointer;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+  font-size: 100%;
+  height: 44px;
+  line-height: 1.15;
+  margin: 12px 0 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all .2s,box-shadow .08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
 }
+
+.gerar-receita button:hover {
+  background-color: #405bf5f1
+}
+
 
 .gerar-receita p{
-  margin: 24px;
-  font-size: 21px;
-  text-align: center;
+    margin: 24px;
+    font-size: 21px;
+    text-align: center;
 }
 
-.btn button:hover{
-  background-color: rgb(37, 51, 129);
-}
 
 .ult-txt {
-  margin-top: 30px;
-}
+    margin-top: 30px;
+    text-align: left;
+  }
+  
+  .ult-txt h2 {
+    text-align: left;
+    margin-left: auto;
+    font-size: 30px;
+    font-family: "Times New Roman";
+  }
 
-.ult-txt h2 {
-
-  text-align: left;
-  margin-left: 80px;
-  font-family: "Bungee";
-}
-.historico{
-  margin: auto;
-  margin: 30px 80px;
-
-  font-size: 28px;
-  text-align: center;
-  padding-bottom: 0.8rem;
-  font-family: "Bungee";
-  text-decoration: underline;
-}
-
-.borda-historico {
-  margin: 20px 60px;
-  width: 100%;
-  max-width: 67rem;
-  min-width: 25rem;
-  margin-top: 40px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.card-historico{
+div .card-historico{
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   flex-wrap: wrap;
-  align-items: center;
-  align-content: center;
+  margin: 0 -10px;
 }
 
 .historico{
-  margin: 20px 30px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  padding: 10px;
-
+    margin: 20px 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    width: calc(40% - 20px); 
+    margin: 0 10px; 
+    margin-top: 1.5rem;
+  }
+  
+.historico ul{
+  color:rgb(104, 104, 104);
 }
 
 .historico h2{
-  margin: auto;
-  font-family: "Oswald";
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.historico img{
-  box-shadow: 1px 2px lightgray;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-}
-
-h3{
-  font-family: "Oswald";
-  margin-left: 21px;
-}
-
-h4{
-  font-family: "Oswald";
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-ul li {
-  font-family: "Bungee";
-}
-
-@media (max-width: 800px) {
-  .title h1{
-    width: 100%;
+    margin: auto;
+    font-family: "Times New Roman";
     font-size: 24px;
+    margin-bottom: 20px;
   }
-}
+  
+  .historico img{
+    box-shadow: 1px 2px lightgray;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+  }
