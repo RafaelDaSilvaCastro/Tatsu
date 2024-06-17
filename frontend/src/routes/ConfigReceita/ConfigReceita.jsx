@@ -8,10 +8,16 @@ import Header from "../../assets/Component/Header/Header";
 
 const options = [
   { value: 'option1', label: '1 Pessoa' },
-  { value: 'option2', label: '2 Pessoa' },
-  { value: 'option3', label: '3 Pessoa' },
-  { value: 'option3', label: '4 Pessoa' },
+  { value: 'option2', label: '2 Pessoas' },
+  { value: 'option3', label: '3 Pessoas' },
+  { value: 'option4', label: '4 Pessoas' },
 ];
+
+const dificult = [
+  { value: 'option1', label: 'Fácil'},
+  { value: 'option2', label: 'Intermediária'},
+  { value: 'option3', label: 'Difícil'},
+]
 
 
 export default function ConfigReceita() {
@@ -26,7 +32,7 @@ export default function ConfigReceita() {
   const handleAddIngredient = () => {
     if (ingredient.trim()) {
       setIngredientsList([...ingredientsList, ingredient]);
-      setIngredient(''); // Clear input after adding
+      setIngredient('');
     }
   };
 
@@ -41,13 +47,24 @@ export default function ConfigReceita() {
     setActiveButton(buttonIndex);
   };
 
-  const [selectedOption, setSelectedOption] = useState(options[0].value); // Initial selected value
+  const [selectedOption, setSelectedOption] = useState(options[0].value);
+  const [selectedOption2, setSelectedOption2] = useState(options[0].value);
+
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
-  return (
+  const handleChange2 = (event) => {
+    setSelectedOption2(event.target.value);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleAddIngredient();
+    }
+  };
+return (
 
     <div className="ingredient-adder">
       <Header />
@@ -68,6 +85,7 @@ export default function ConfigReceita() {
           placeholder="Adicione um ingrediente"
           value={ingredient}
           onChange={handleInputChange}
+          onKeyPress={handleKeyPress}
         />
 
         <button onClick={handleAddIngredient}>+</button>
@@ -75,7 +93,7 @@ export default function ConfigReceita() {
       <div className='borda'>
         <label className='nome-campo'>Dificuldade da receita</label>
         <div className="button-toggle">
-          <button
+          {/* <button
             className={activeButton === 0 ? 'button active' : 'button'}
             onClick={() => handleButtonClick(0)}
           >
@@ -85,14 +103,22 @@ export default function ConfigReceita() {
             className={activeButton === 1 ? 'button active' : 'button'}
             onClick={() => handleButtonClick(1)}
           >
-            Intermediaria
+            Intermediária
           </button>
           <button
             className={activeButton === 2 ? 'button active' : 'button'}
             onClick={() => handleButtonClick(2)}
           >
-            Dificil
-          </button>
+            Difícil
+          </button> */}
+          <select value={selectedOption2} onChange={handleChange2}>
+            {dificult.map((dificult) => (
+              <option key={dificult.value} value={dificult.value}>
+                {dificult.label}
+              </option>
+            ))}
+          </select>
+
         </div>
       </div>
       <label className='nome-campo'>Número de pessoas</label>
