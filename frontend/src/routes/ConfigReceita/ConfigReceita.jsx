@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
+import { db } from '../../firebaseConnection';
+import { doc, setDoc } from 'firebase/firestore'
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 import './ConfigReceita.css'
 
 import Header from "../../assets/Component/Header/Header";
 
+import axios from "axios"
+
 
 const options = [
-  { value: 'option1', label: '1 Pessoa' },
-  { value: 'option2', label: '2 Pessoa' },
-  { value: 'option3', label: '3 Pessoa' },
-  { value: 'option3', label: '4 Pessoa' },
+  { value: '1 Pessoa', label: '1 Pessoa' },
+  { value: '2 Pessoa', label: '2 Pessoa' },
+  { value: '3 Pessoa', label: '3 Pessoa' },
+  { value: '4 Pessoa', label: '4 Pessoa' },
 ];
 
 
 export default function ConfigReceita() {
+  const navigate = useNavigate();
   const [ingredient, setIngredient] = useState('');
   const [ingredientsList, setIngredientsList] = useState([]);
   const [activeButton, setActiveButton] = useState(null);
@@ -26,7 +32,7 @@ export default function ConfigReceita() {
   const handleAddIngredient = () => {
     if (ingredient.trim()) {
       setIngredientsList([...ingredientsList, ingredient]);
-      setIngredient(''); // Clear input after adding
+      setIngredient(''); 
     }
   };
 
@@ -46,6 +52,52 @@ export default function ConfigReceita() {
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
   };
+
+  async function handleRevenue(){
+    const req = await axios({
+      method: 'get',
+      url: 'http://161.35.234.165/Receita',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      data: {
+        "dificuldade": activeButton,
+        "porcaoPessoas": selectedOption,
+        "ingredientes": ingredientsList
+      }
+    });
+  
+
+    const objReceita = req.data
+    if(objReceita.success){
+      const receita = objReceita.data[3]
+      const nomeReceita = receita.titulo
+      const user = JSON.parse(localStorage.getItem('@detailUser'))
+      const userId = user.uid
+      await setDoc(doc(db, "historico", nomeReceita), {
+        json: JSON.stringify(receita),
+        userId: userId
+      })
+      .then(()=>{
+        console.log('Receita salva com sucesso......')
+      })
+      .catch((err)=>{
+        console.log('Erro ao salvar receita: '+ err)
+      })
+    
+    
+    //  navigate('/receita');
+      
+    }
+    else{
+      alert('Erro ao gerar receita tente outra configuração')  
+    }
+    
+  }
+
+  useEffect(() => {
+
+  }, [])
 
   return (
 
@@ -107,7 +159,7 @@ export default function ConfigReceita() {
       </div>
       <div className="actions">
         <Link to='/Home'><button className='btnCancelar'>Cancelar</button></Link >
-        <button className='btnGerar'>Gerar</button>
+        <button className='btnGerar' onClick={async ()=> await handleRevenue() } >Gerar</button>
       </div>
     </div>
 

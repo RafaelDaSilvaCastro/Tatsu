@@ -13,7 +13,6 @@ export default function Private({ children }){
     async function checkLogin(){
       const unsub = onAuthStateChanged(auth, (user) => {
          //se tem user logado
-         console.log('aaaaaaaaa')
          console.log(user)
          if(user){
           const userData = {
