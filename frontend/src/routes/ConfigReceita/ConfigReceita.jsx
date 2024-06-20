@@ -69,11 +69,13 @@ export default function ConfigReceita() {
   
 
     const objReceita = req.data
+    console.log(objReceita.success)
     if(objReceita.success){
       const receita = objReceita.data[3]
       const nomeReceita = receita.titulo
       const user = JSON.parse(localStorage.getItem('@detailUser'))
       const userId = user.uid
+
       await setDoc(doc(db, "historico", nomeReceita), {
         json: JSON.stringify(receita),
         userId: userId
