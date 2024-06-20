@@ -1,14 +1,12 @@
 import { useEffect } from "react"
-import { useLocation } from 'react-router-dom';
 
 export default function Recipe(){
-  const location = useLocation();
-  const { receita } = location.state || { receita: {} };
 
 
   useEffect(() => {
-   console.log('**********************')
-   console.log(receita)
+    const id = localStorage.getItem('@revenueId')
+    console.log('****************************')
+    console.log(id)
   }, []);
 
   return(

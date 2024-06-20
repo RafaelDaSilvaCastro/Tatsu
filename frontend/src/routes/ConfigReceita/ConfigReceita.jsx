@@ -73,15 +73,18 @@ export default function ConfigReceita() {
     if(objReceita.success){
       const receita = objReceita.data[3]
       const nomeReceita = receita.titulo
+      const revenueId = receita.id
       const user = JSON.parse(localStorage.getItem('@detailUser'))
       const userId = user.uid
 
       await setDoc(doc(db, "historico", nomeReceita), {
         json: JSON.stringify(receita),
-        userId: userId
+        userId: userId,
+        revenueId: revenueId
       })
       .then(()=>{
         console.log('Receita salva com sucesso......')
+        localStorage.setItem('@revenueId', revenueId)
       })
       .catch((err)=>{
         console.log('Erro ao salvar receita: '+ err)
