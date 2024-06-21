@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { auth } from '../../firebaseConnection';
+import { db } from "../../firebaseConnection";
 import { onAuthStateChanged} from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
+import { getDocs, collection } from "firebase/firestore";
 import './Home.css'
 
 import CardReceita from '../../assets/Component/UltimasReceitas/CardReceita'
@@ -12,17 +14,63 @@ import Header from "../../assets/Component/Header/Header";
 export default function Home() {
   const navigate = useNavigate();
 
-  // Lista de emojis de comida
   const emojis = ["🍔", "🍕", "🍟", "🌭", "🍗", "🥩", "🍣", "🍝", "🍜", "🥪", "🌮", "🥗", "🍲", "🍛", "🍱", "🍤", "🥟", "🥨", "🥞", "🥓"];
-
-  // Estado para controlar o emoji atual
   const [currentEmojiIndex, setCurrentEmojiIndex] = useState(0);
+  const [receitas, setReceitas] = useState([])
 
-  // Função para atualizar o emoji a cada 3 segundos
+  function concatValues(obj) {
+    const result = [];
+    for (const key in obj) {
+        if (typeof obj[key] === 'object' && obj[key] !== null) {
+            result.push(...concatValues(obj[key]));
+        } else {
+            result.push(`${key}: ${obj[key]}`);
+        }
+    }
+    return result;
+  }
+
+  async function historicoReceitas() {
+    const ref = collection(db, "historico");
+    await getDocs(ref)
+      .then((snapshot) => {
+        console.log('Buscou historico');
+
+        let lista = [];
+        let idLista = 0
+        snapshot.forEach((doc) => {
+          const docObj = doc.data();
+          const objJson = JSON.parse(docObj.json)          
+          const titulo = objJson.titulo;
+          console.log(titulo)
+          const objIngredientes = objJson.ingredientes
+          idLista++
+          let ingredientes = concatValues(objIngredientes)
+          ingredientes = ingredientes.slice(0,3)
+          ingredientes.push('...')
+
+          lista.push({
+            titulo: titulo,
+            ingredientes: ingredientes,
+            id: idLista
+          });
+
+        });
+        
+        setReceitas(lista)
+      })
+      .catch((err) => {
+        console.error('Erro gerado na busca do historico: ' + err);
+      });
+  }
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentEmojiIndex(prevIndex => (prevIndex + 1) % emojis.length);
     }, 3000);
+
+    historicoReceitas();
+
     return () => clearInterval(interval);
   }, []);
 
@@ -45,19 +93,19 @@ export default function Home() {
               <h2>Últimas receitas</h2>  
             </div>
               <div className="card-historico">    
-                  <div className="historico">
-                    <CardReceita className="img" title="Lasanha de Frango" ingredients={["500 g de massa de lasanha", "500 g de frango", "2 caixas de creme de leite"]} url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUL_RKyGzqiIMNpRSLzWKsr1wq0Dwc0-3H4A&s"/>
-                  </div>
-                  <div className="historico">
-                    <CardReceita className="img" title="Lasanha de Frango" ingredients={["500 g de massa de lasanha", "500 g de frango", "2 caixas de creme de leite"]} url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUL_RKyGzqiIMNpRSLzWKsr1wq0Dwc0-3H4A&s"/>
-                  </div>
-                  <div className="historico">
-                    <CardReceita className="img" title="Lasanha de Frango" ingredients={["500 g de massa de lasanha", "500 g de frango", "2 caixas de creme de leite"]} url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUL_RKyGzqiIMNpRSLzWKsr1wq0Dwc0-3H4A&s"/>
-                  </div>
+                  {
+                    receitas.map((r) =>{
+                      return(
+                        <div className="historico">
+                          <CardReceita className="img" title={r.titulo} ingredients={r.ingredientes} url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUL_RKyGzqiIMNpRSLzWKsr1wq0Dwc0-3H4A&s"/>
+                        </div> 
+                      )
+                    })
+
+                  }
               </div>
           </div>
       </div>
-
     </>
   );
 }
