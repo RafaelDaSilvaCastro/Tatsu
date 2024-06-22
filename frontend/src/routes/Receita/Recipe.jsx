@@ -89,7 +89,7 @@ const jsonReceita = JSON.parse(`{
          "Farinha de milho":"1/2 xícara",
          "Milho verde":"1 lata",
          "Azeite de oliva":"1 colher de sopa",
-         "Sal":"Muitooooooooooooo sal 2 kg por 100g de frango :)"
+         "Sal":"a gosto"
       },
       "Ovos":{
          "Ovos":"2 unidades",

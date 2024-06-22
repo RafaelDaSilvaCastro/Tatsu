@@ -70,7 +70,7 @@ export default function ConfigReceita() {
     const objReceita = req.data
     console.log(objReceita.success)
     if(objReceita.success){
-      const receita = objReceita.data[5]
+      const receita = objReceita.data[3]
       const nomeReceita = receita.titulo
       const revenueId = receita.id
       const user = JSON.parse(localStorage.getItem('@detailUser'))
@@ -90,7 +90,7 @@ export default function ConfigReceita() {
       })
     
     
-    //  navigate('/receita');
+      navigate('/receita');
       
     }
     else{
@@ -99,9 +99,7 @@ export default function ConfigReceita() {
     
   }
 
-  useEffect(() => {
 
-  }, [])
 
   return (
 
